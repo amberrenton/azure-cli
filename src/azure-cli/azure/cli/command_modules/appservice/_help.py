@@ -1440,7 +1440,7 @@ type: command
 short-summary: Add an Azure storage account configuration to a web app. (Linux Web Apps and Windows Containers Web Apps Only)
 long-summary: Note that storage account access keys are now redacted in the result. Please use the `az webapp config storage-account list` command to view the keys.
 examples:
-  - name: Add a connection to the Azure Files file share called MyShare in the storage account named MyStorageAccount.
+  - name: Add a connection to the Azure Files SMB file share called MyShare in the storage account named MyStorageAccount.
     text: >
         az webapp config storage-account add -g MyResourceGroup -n MyUniqueApp \\
           --custom-id CustomId \\
@@ -1448,7 +1448,8 @@ examples:
           --account-name MyStorageAccount \\
           --share-name MyShare \\
           --access-key MyAccessKey \\
-          --mount-path /path/to/mount
+          --mount-path /path/to/mount \\
+          --protocol Smb
 """
 
 helps['webapp config storage-account delete'] = """

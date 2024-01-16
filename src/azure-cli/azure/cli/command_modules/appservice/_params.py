@@ -526,6 +526,8 @@ subscription than the app service environment, please use the resource ID for --
                    help='the path which the web app uses to read-write data ex: /share1 or /share2')
         c.argument('slot', options_list=['--slot', '-s'],
                    help="the name of the slot. Default to the productions slot if not specified")
+        c.argument('protocol', options_list=['--protocol', '-p'],
+                   help="The protocol to use when mounting the file share. Defaults to Smb for AzureFiles and Http for AzureBlob.")
     with self.argument_context('webapp config storage-account add') as c:
         c.argument('slot_setting', options_list=['--slot-setting'], help="With slot setting you can decide to make BYOS configuration sticky to a slot, meaning that when that slot is swapped, the storage account stays with that slot.")
     with self.argument_context('webapp config storage-account update') as c:
